@@ -1,14 +1,10 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-import Home from "@domains/home";
+import Home from '@domains/home'
 
 function App() {
+  // return null for server side rendered data
   if (typeof document === 'undefined') {
     return null
   }
@@ -30,7 +26,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

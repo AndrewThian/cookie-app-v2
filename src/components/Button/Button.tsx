@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface ButtonProps {
-  label: string;
+  label: string
 }
 
 /**
@@ -9,4 +9,4 @@ export interface ButtonProps {
  */
 export const Button: React.FC<ButtonProps> = ({ label }) => {
   return <button>{label}</button>
-};
+}
