@@ -6,5 +6,12 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials"
-  ]
+  ],
+  babel: async (options) => ({
+    ...options,
+    plugins: [
+      ...options.plugins,
+      [require.resolve("@babel/plugin-proposal-private-property-in-object"), { loose: true }]
+    ]
+  })
 }
