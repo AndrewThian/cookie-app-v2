@@ -1,0 +1,1 @@
+This folder holds all the different domains according to the app. i.e home page, system resources, state

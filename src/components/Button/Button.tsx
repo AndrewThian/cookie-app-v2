@@ -7,6 +7,6 @@ export interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({ label }) => {
-  return <button>{label}</button>
+export const Button: React.FC<ButtonProps> = () => {
+  return <button>text button</button>
 }

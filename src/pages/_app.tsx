@@ -1,7 +1,10 @@
-import SafeHydrate from '../domains/system/SafeHydrate'
+import { SafeHydrate } from '../domains/system/SafeHydrate'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <SafeHydrate>
       <Component {...pageProps} />
