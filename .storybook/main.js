@@ -21,5 +21,5 @@ module.exports = {
       ...options.plugins,
       ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
     ]
-  })
+  }),
 }
