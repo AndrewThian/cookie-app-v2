@@ -4,7 +4,7 @@ import { Button } from '@components/Button'
 function Home(): JSX.Element {
   return (
     <h1>
-      <Button label="text" />
+      <Button label="test" />
     </h1>
   )
 }

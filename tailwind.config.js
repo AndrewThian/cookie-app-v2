@@ -2,14 +2,17 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    borderRadious: {
+      DEFAULT: '5px',
+    },
     fontWeight: {
       normal: 400,
       medium: 500
     },
     fontSize: {
       xs: '0.75rem',
-      sm: '0.875rem',
-      base: '1rem',
+      sm: ['0.875rem', '1.185'],
+      base: ['1rem', '1.185'],
       lg: '1.5rem',
       xl: '2rem',
       xxl: '2.5rem',
@@ -44,6 +47,9 @@ module.exports = {
         }
       }
     },
+  },
+  corePlugins: {
+   outline: false,
   },
   variants: {
     extend: {},
