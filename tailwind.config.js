@@ -2,6 +2,18 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontWeight: {
+      normal: 400,
+      medium: 500
+    },
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.5rem',
+      xl: '2rem',
+      xxl: '2.5rem',
+    },
     extend: {
       colors: {
         blue: {
