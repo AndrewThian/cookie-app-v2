@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 export interface DropdownProps {
-  label: string;
+  label: string
 }
 
 /**
@@ -9,4 +9,4 @@ export interface DropdownProps {
  */
 export const Dropdown: React.FC<DropdownProps> = ({ label }) => {
   return <button>{label}</button>
-};
+}

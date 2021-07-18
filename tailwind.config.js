@@ -18,6 +18,9 @@ module.exports = {
       xxl: '2.5rem',
     },
     extend: {
+      width: {
+        '40px': '40px',
+      },
       colors: {
         blue: {
           400: '#2D3CFD',

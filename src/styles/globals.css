@@ -22,4 +22,9 @@
   button:focus, button:active {
     outline: none;
   }
+
+  .tablerow-tick {
+    width: 40px;
+    height: 40px;
+  }
 }
