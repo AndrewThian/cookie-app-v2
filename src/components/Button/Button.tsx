@@ -42,7 +42,12 @@ const computeColorStyle = (type: ButtonType = ButtonType.FIXED, disabled: boolea
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({ disabled = false, label, size, type }) => {
+export const Button: React.FC<ButtonProps> = ({
+  disabled = false,
+  label,
+  size = ButtonSize.LARGE,
+  type = ButtonType.VARIABLE,
+}) => {
   const fontStyle = size === ButtonSize.SMALL ? 'text-sm' : 'text-base'
 
   const paddingStyle = computePaddingStyle(type, size)
