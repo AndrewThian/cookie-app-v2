@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'clsx'
 
 enum DropdownState {
   ACTIVE = 'active',
@@ -9,17 +10,11 @@ enum DropdownState {
 export interface DropdownProps {
   label: string
   disabled?: boolean
-  filled?: boolean
   state?: DropdownState
   iconURI?: string
 }
 
 const defaultIconURI = '/assets/icons/diamond.svg'
-
-const computeLabelColor = (state: DropdownState, disabled: boolean): string => {
-  if (disabled || state === DropdownState.EMPTY) return 'text-grey-300'
-  return ''
-}
 
 /**
  * Primary UI component for user interaction
@@ -30,12 +25,37 @@ export const Dropdown: React.FC<DropdownProps> = ({
   state = DropdownState.EMPTY,
   iconURI,
 }) => {
-  const labelColor = computeLabelColor(state, disabled)
+  const shouldShowIcon = Boolean(iconURI) && state !== DropdownState.EMPTY
 
   return (
-    <div className="text-base p-4 flex items-center relative">
-      {iconURI && <img src={iconURI ?? defaultIconURI} alt="icon" />}
-      <p className={`block ml-4 ${labelColor}`}>{label}</p>
+    <div
+      className={cx(
+        'text-base p-4 flex items-center relative rounded border',
+        {
+          'border-white': !(state === DropdownState.ACTIVE || state === DropdownState.ERROR),
+          'border-blue-400': !disabled && state === DropdownState.ACTIVE,
+          'border-pink-400': !disabled && state === DropdownState.ERROR,
+        },
+        {
+          'border-grey-100': disabled,
+          'bg-grey-100': disabled,
+          'cursor-not-allowed': disabled,
+        }
+      )}
+    >
+      {shouldShowIcon && <img src={iconURI ?? defaultIconURI} alt="icon" />}
+      <p
+        className={cx(
+          {
+            'block ml-4': shouldShowIcon,
+          },
+          {
+            'text-grey-300': disabled || state === DropdownState.EMPTY,
+          }
+        )}
+      >
+        {label}
+      </p>
     </div>
   )
 }
