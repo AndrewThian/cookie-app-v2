@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import cx from 'clsx'
 
 enum DropdownState {
@@ -12,6 +12,12 @@ export interface DropdownProps {
   disabled?: boolean
   state?: DropdownState
   iconURI?: string
+  onClick: (state: DropdownState, event: React.MouseEvent<HTMLDivElement>) => void
+  onFilled: (state: DropdownState) => void
+  onActive: (state: DropdownState) => void
+  onError: (state: DropdownState) => void
+  onEmpty: (state: DropdownState) => void
+  onStateChange: (state: DropdownState) => void
 }
 
 const defaultIconURI = '/assets/icons/diamond.svg'
@@ -24,11 +30,33 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled = false,
   state = DropdownState.EMPTY,
   iconURI,
+  onClick,
+  onError,
+  onActive,
+  onFilled,
+  onEmpty,
+  onStateChange,
 }) => {
-  const shouldShowIcon = Boolean(iconURI) && state !== DropdownState.EMPTY
+  const onStateChangeRef = useRef(onStateChange)
+  const onActiveRef = useRef(onActive)
+  const onFilledRef = useRef(onFilled)
+  const onErrorRef = useRef(onError)
+  const onEmptyRef = useRef(onEmpty)
 
+  useEffect(() => {
+    onStateChangeRef.current(state)
+    if (state === DropdownState.ACTIVE) return onActiveRef.current(state)
+    if (state === DropdownState.FILLED) return onFilledRef.current(state)
+    if (state === DropdownState.ERROR) return onErrorRef.current(state)
+    if (state === DropdownState.EMPTY) return onEmptyRef.current(state)
+  }, [state])
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => onClick(state, event)
+  const shouldShowIcon = Boolean(iconURI) && state !== DropdownState.EMPTY
   return (
     <div
+      aria-hidden
+      onClick={handleClick}
       className={cx(
         'text-base p-4 flex items-center relative rounded border',
         {
