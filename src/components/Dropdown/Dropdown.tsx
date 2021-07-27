@@ -10,6 +10,7 @@ enum DropdownState {
 export interface DropdownProps {
   label: string
   disabled?: boolean
+  showIcon: boolean
   state?: DropdownState
   iconURI?: string
   onClick: (state: DropdownState, event: React.MouseEvent<HTMLDivElement>) => void
@@ -28,6 +29,7 @@ const defaultIconURI = '/assets/icons/diamond.svg'
 export const Dropdown: React.FC<DropdownProps> = ({
   label,
   disabled = false,
+  showIcon = true,
   state = DropdownState.EMPTY,
   iconURI,
   onClick,
@@ -52,13 +54,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, [state])
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => onClick(state, event)
-  const shouldShowIcon = Boolean(iconURI) && state !== DropdownState.EMPTY
+  const chevronSVGURI = `/assets/icons/chevron-grey-${disabled ? '300' : '400'}.svg`
+
   return (
     <div
       aria-hidden
       onClick={handleClick}
       className={cx(
-        'text-base p-4 flex items-center relative rounded border',
+        'text-base p-4 flex items-center relative rounded border justify-between',
         {
           'border-white': !(state === DropdownState.ACTIVE || state === DropdownState.ERROR),
           'border-blue-400': !disabled && state === DropdownState.ACTIVE,
@@ -71,19 +74,17 @@ export const Dropdown: React.FC<DropdownProps> = ({
         }
       )}
     >
-      {shouldShowIcon && <img src={iconURI ?? defaultIconURI} alt="icon" />}
-      <p
-        className={cx(
-          {
-            'block ml-4': shouldShowIcon,
-          },
-          {
+      <div className="flex items-center space-x-4">
+        {showIcon && <img src={iconURI ?? defaultIconURI} alt="icon" />}
+        <p
+          className={cx({
             'text-grey-300': disabled || state === DropdownState.EMPTY,
-          }
-        )}
-      >
-        {label}
-      </p>
+          })}
+        >
+          {label}
+        </p>
+      </div>
+      <img src={chevronSVGURI} alt="chevron" />
     </div>
   )
 }
