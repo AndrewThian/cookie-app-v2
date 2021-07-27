@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface TableRowProps {
+export interface SimpleTableRowProps {
   label: string
   isSelected?: boolean
   iconURI?: string
@@ -12,7 +12,7 @@ const Tick: React.FC = () => (
   </div>
 )
 
-export const TableRow: React.FC<TableRowProps> = ({
+export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({
   label,
   iconURI = '/assets/icons/diamond.svg',
   isSelected = false,
