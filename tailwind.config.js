@@ -2,12 +2,6 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    borderRadius: {
-      DEFAULT: '5px',
-    },
-    borderWidth: {
-      DEFAULT: '1px'
-    },
     fontWeight: {
       normal: 400,
       medium: 500
@@ -21,6 +15,12 @@ module.exports = {
       xxl: '2.5rem',
     },
     extend: {
+      borderRadius: {
+        DEFAULT: '5px',
+      },
+      borderWidth: {
+        DEFAULT: '1px'
+      },
       width: {
         '40px': '40px',
       },
