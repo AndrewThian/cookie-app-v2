@@ -15,6 +15,9 @@ module.exports = {
       xxl: '2.5rem',
     },
     extend: {
+      spacing: {
+        base: '15px'
+      },
       borderRadius: {
         DEFAULT: '5px',
       },

@@ -1,26 +1,38 @@
+import { Checkbox } from '../Checkbox'
 import React from 'react'
-import { BaseRow } from '../BaseRow'
+import { BaseRow, IgnoreMargin } from '../BaseRow'
 
 export interface CheckboxRowProps {
   label: string
   isSelected?: boolean
   iconURI?: string
+  onChange?: (checked: boolean) => void
+  initialValue?: boolean
 }
-
-const Tick: React.FC = () => (
-  <div className="rounded-full icon-size bg-blue-100 absolute top-2 right-4 flex justify-center items-center">
-    <img src="/assets/icons/blue-tick.svg" alt="blue tick" />
-  </div>
-)
 
 export const CheckboxRow: React.FC<CheckboxRowProps> = ({
   label,
   iconURI = '/assets/icons/diamond.svg',
-  isSelected = false,
-}) => (
-  <BaseRow>
-    <img src={iconURI} alt="category icon" />
-    <p className="block ml-4">{label}</p>
-    {isSelected ? <Tick /> : null}
-  </BaseRow>
-)
+  onChange,
+  initialValue,
+}) => {
+  const [checked, setChecked] = React.useState(initialValue ?? false)
+  const handleClick = (): void => setChecked((currentChecked) => !currentChecked)
+  const onChangeRef = React.useRef(onChange)
+
+  React.useEffect(() => {
+    if (onChangeRef.current) {
+      onChangeRef.current(checked)
+    }
+  }, [checked])
+
+  return (
+    <div className="flex items-center cursor-pointer" onClick={handleClick}>
+      <BaseRow ignoreMargin={IgnoreMargin.RIGHT}>
+        <img src={iconURI} alt="category icon" />
+        <p className="block ml-4">{label}</p>
+      </BaseRow>
+      <Checkbox spacing onChange={onChange} checked={checked} disableEvents />
+    </div>
+  )
+}
