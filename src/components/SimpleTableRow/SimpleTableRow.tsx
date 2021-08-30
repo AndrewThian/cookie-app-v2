@@ -1,5 +1,5 @@
 import React from 'react'
-import { BaseRow } from '@components/BaseRow'
+import { BaseRow } from '../BaseRow'
 
 export interface SimpleTableRowProps {
   label: string
