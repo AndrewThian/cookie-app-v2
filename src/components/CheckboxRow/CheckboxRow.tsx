@@ -27,7 +27,7 @@ export const CheckboxRow: React.FC<CheckboxRowProps> = ({
   }, [checked])
 
   return (
-    <div className="flex items-center cursor-pointer" onClick={handleClick}>
+    <div className="flex items-center cursor-pointer select-none" onClick={handleClick}>
       <BaseRow ignoreMargin={IgnoreMargin.RIGHT}>
         <img src={iconURI} alt="category icon" />
         <p className="block ml-4">{label}</p>
