@@ -2,10 +2,6 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontWeight: {
-      normal: 400,
-      medium: 500
-    },
     fontSize: {
       xs: '0.75rem',
       sm: ['0.875rem', '1.185rem'],
@@ -15,8 +11,14 @@ module.exports = {
       xxl: '2.5rem',
     },
     extend: {
+      fontWeight: {
+        normal: 400,
+        medium: 500
+      },
       spacing: {
-        base: '15px'
+        base: '15px',
+        '5.5': '1.125rem',
+        'icon': '24px'
       },
       borderRadius: {
         DEFAULT: '5px',
@@ -63,5 +65,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: 'class',
+    }),
+  ]
 }

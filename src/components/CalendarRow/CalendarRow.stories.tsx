@@ -14,5 +14,4 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   label: 'CalendarRow',
-  dateText: '2021/02/22',
 }

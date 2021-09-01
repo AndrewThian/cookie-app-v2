@@ -15,11 +15,11 @@ module.exports = {
       },
     },
   ],
-  babel: async (options) => ({
-    ...options,
-    plugins: [
-      ...options.plugins,
-      ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
-    ]
-  }),
+  // babel: async (options) => ({
+  //   ...options,
+  //   plugins: [
+  //     ...options.plugins,
+  //     ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+  //   ]
+  // }),
 }

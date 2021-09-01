@@ -14,6 +14,7 @@ export interface BaseRowProps {
   borderColor?: string
   ignoreMargin?: IgnoreMargin
   justifyContent?: JustifyContent
+  hasIcon?: boolean
 }
 
 export const BaseRow: React.FC<BaseRowProps> = ({
@@ -21,8 +22,9 @@ export const BaseRow: React.FC<BaseRowProps> = ({
   borderColor = 'border-white',
   ignoreMargin,
   justifyContent,
+  hasIcon = false,
 }) => {
-  const baseClassNames = 'text-base flex items-center relative rounded border'
+  const baseClassNames = 'flex text-base items-center relative rounded border'
   return (
     <div
       className={clsx(baseClassNames, borderColor, {
@@ -30,6 +32,7 @@ export const BaseRow: React.FC<BaseRowProps> = ({
         'pr-base pt-base pb-base': ignoreMargin === IgnoreMargin.LEFT,
         'pl-base pt-base pb-base': ignoreMargin === IgnoreMargin.RIGHT,
         'justify-between': justifyContent === JustifyContent.CENTER,
+        'p-5.5': !hasIcon,
       })}
     >
       {children}

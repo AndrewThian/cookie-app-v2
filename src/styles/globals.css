@@ -19,7 +19,11 @@
     @apply text-lg font-medium;
   }
 
-  button:focus, button:active {
+  button:focus, button:active, {
+    outline: none;
+  }
+
+  input:focus {
     outline: none;
   }
 
@@ -31,4 +35,5 @@
   p {
     @apply text-grey-400;
   }
+
 }
