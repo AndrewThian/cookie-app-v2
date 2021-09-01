@@ -8,13 +8,19 @@ import { useClickAway } from 'react-use'
 export interface NumericInputRowProps {
   label: string
   iconURI?: string
+  disabled?: boolean
   onChange: (value: string) => void
 }
 
 const hasDollarSign = (val: string): boolean => RegExp('\\$').test(val)
 const stripDollarSign = (val: string): string => val.replace(RegExp('\\$'), '')
 
-export const NumericInputRow: React.FC<NumericInputRowProps> = ({ label, iconURI, onChange }) => {
+export const NumericInputRow: React.FC<NumericInputRowProps> = ({
+  label,
+  disabled = false,
+  iconURI,
+  onChange,
+}) => {
   const [inputText, setInputText] = React.useState('')
   const [inputFocus, setInputFocus] = React.useState(false)
   const inputElementRef = React.useRef<HTMLInputElement>(null)
@@ -31,6 +37,7 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({ label, iconURI
   useClickAway(containerElementRef, () => setInputFocus(false))
 
   const handleContainerClick: MouseEventHandler<HTMLDivElement> = () => {
+    if (disabled) return
     if (inputElementRef.current) inputElementRef.current.focus()
   }
 
@@ -43,8 +50,19 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({ label, iconURI
   }, [onChange, inputText])
 
   return (
-    <div ref={containerElementRef} className="cursor-pointer" onClick={handleContainerClick}>
-      <BaseRow hasIcon={hasIcon} borderColor={inputFocus ? 'border-blue-400' : 'border-white'}>
+    <div
+      ref={containerElementRef}
+      className={clsx('rounded select-none', {
+        'cursor-pointer': !disabled,
+        'bg-grey-100': disabled,
+        'cursor-default': disabled,
+      })}
+      onClick={handleContainerClick}
+    >
+      <BaseRow
+        hasIcon={hasIcon}
+        borderColor={disabled ? 'border-grey-100' : inputFocus ? 'border-blue-400' : 'border-white'}
+      >
         {iconURI && <img width="24" height="24" src={iconURI} alt="category icon" />}
         <div className="flex items-center w-full">
           <div
@@ -52,9 +70,16 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({ label, iconURI
               'ml-4': hasIcon,
             })}
           >
-            <p className="text-base">{label}</p>
+            <p
+              className={clsx('text-base', {
+                'text-grey-300': disabled,
+              })}
+            >
+              {label}
+            </p>
           </div>
           <input
+            disabled={disabled}
             ref={inputElementRef}
             className="pointer-events-none text-grey-400 w-full placeholder-grey-300 text-right"
             type="text"
