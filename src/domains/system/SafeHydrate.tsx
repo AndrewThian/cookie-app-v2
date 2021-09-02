@@ -4,8 +4,8 @@ type Props = {
   children: JSX.Element
 }
 
-function SafeHydrate({ children }: Props) {
+function SafeHydrate({ children }: Props): JSX.Element {
   return <div suppressHydrationWarning>{typeof document === 'undefined' ? null : children}</div>
 }
 
-export default SafeHydrate
+export { SafeHydrate }

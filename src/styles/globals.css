@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    @apply text-xxl font-medium;
+  }
+
+  h2 {
+    @apply text-xl font-medium;
+  }
+
+  h3 {
+    @apply text-lg font-medium;
+  }
+
+  button:focus, button:active, {
+    outline: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .icon-size {
+    width: 40px;
+    height: 40px;
+  }
+
+  p {
+    @apply text-grey-400;
+  }
+
+}

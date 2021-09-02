@@ -1,0 +1,1 @@
+This directory includes components that only belong to the design system

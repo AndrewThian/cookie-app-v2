@@ -1,0 +1,101 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Typeset
+} from "@storybook/addon-docs/blocks"
+
+import { theme } from "../utils/tailwindTheme"
+
+<Meta title="Introduction" />
+
+# Introduction
+
+## Colours
+
+<ColorPalette>
+  <ColorItem 
+    title="grey"
+    colors={[
+      theme.colors.grey[400],
+      theme.colors.grey[300],
+      theme.colors.grey[200],
+      theme.colors.grey[100]
+    ]}
+  />
+  <ColorItem 
+    title="blue"
+    colors={[
+      theme.colors.blue[400],
+      theme.colors.blue[300],
+      theme.colors.blue[200]
+    ]}
+  />
+  <ColorItem 
+    title="green"
+    colors={[
+      theme.colors.green[400],
+      theme.colors.green[300],
+      theme.colors.green[200]
+    ]}
+  />
+  <ColorItem 
+    title="yellow"
+    colors={[
+      theme.colors.yellow[400],
+      theme.colors.yellow[300],
+      theme.colors.yellow[200]
+    ]}
+  />
+  <ColorItem 
+    title="pink"
+    colors={[
+      theme.colors.pink[400],
+      theme.colors.pink[300],
+      theme.colors.pink[200]
+    ]}
+  />
+</ColorPalette>
+
+## Fonts
+
+### Header
+
+<Typeset fontFamily="Rubik" fontSizes={[24, 32, 40]} fontWeight={500} sampleText="Cookies are for smart people" />
+
+### Body
+
+#### Regular
+
+**size**: 16px
+**weight**: 400
+
+<Typeset fontFamily="Rubik" fontSizes={[16]} fontWeight={400} sampleText="Cookies are for smart people" />
+
+#### Medium
+
+**size**: 14px
+**weight**: 500
+
+<Typeset fontFamily="Rubik" fontSizes={[16]} fontWeight={500} sampleText="Cookies are for smart people" />
+
+### Descriptor
+
+**size**: 14px
+**weight**: 400
+
+<Typeset fontFamily="Rubik" fontSizes={[14]} fontWeight={400} sampleText="Cookies are for smart people" />
+
+### Subsection
+
+**size**: 14px
+**weight**: 500
+
+<Typeset fontFamily="Rubik" fontSizes={[14]} fontWeight={500} sampleText="Cookies are for smart people" />
+
+### Error
+
+**size**: 12px
+**weight**: 400
+
+<Typeset fontFamily="Rubik" fontSizes={[12]} fontWeight={400} sampleText="Cookies are for smart people" />

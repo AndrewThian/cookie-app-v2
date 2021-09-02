@@ -5,6 +5,21 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
-  ]
+    "@storybook/addon-essentials",
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
+  ],
+  // babel: async (options) => ({
+  //   ...options,
+  //   plugins: [
+  //     ...options.plugins,
+  //     ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+  //   ]
+  // }),
 }
