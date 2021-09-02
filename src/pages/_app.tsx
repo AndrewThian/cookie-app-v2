@@ -1,4 +1,4 @@
-import { SafeHydrate } from '../domains/system/SafeHydrate'
+import { SafeHydrate } from '../ui/system/SafeHydrate'
 import type { AppProps } from 'next/app'
 
 import 'tailwindcss/tailwind.css'

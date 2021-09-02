@@ -11,6 +11,9 @@ module.exports = {
       xxl: '2.5rem',
     },
     extend: {
+      lineHeight: {
+        'header': '120%'
+      },
       fontWeight: {
         normal: 400,
         medium: 500
@@ -49,7 +52,8 @@ module.exports = {
           400: '#343A40',
           300: '#6E6E83',
           200: '#C3C3D4',
-          100: '#EAEBF0'
+          100: '#EAEBF0',
+          'bg': '#F3F3F6'
         },
         pink: {
           400: '#FD2D78',

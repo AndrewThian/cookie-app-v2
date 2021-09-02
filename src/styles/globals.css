@@ -7,6 +7,10 @@
     font-size: 16px;
   }
 
+  h1, h2, h3 {
+    @apply leading-header;
+  }
+
   h1 {
     @apply text-xxl font-medium;
   }

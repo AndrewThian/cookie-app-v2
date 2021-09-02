@@ -1,6 +1,6 @@
 import React from 'react'
 
-enum ButtonType {
+export enum ButtonType {
   FIXED = 'fixed',
   VARIABLE = 'variable',
   LINK = 'link',
