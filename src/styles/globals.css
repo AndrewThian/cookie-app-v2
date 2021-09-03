@@ -39,5 +39,10 @@
   p {
     @apply text-grey-400;
   }
+}
 
+.home-page_main-block {
+  padding: 21px 12px;
+  width: 269px;
+  height: 269px;
 }

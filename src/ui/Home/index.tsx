@@ -1,15 +1,18 @@
 import * as React from 'react'
-import { Button, ButtonType } from '@components/Button'
 import { AppShell, BgColor } from '@components/AppShell'
+import { MainCTA } from './MainCTA'
+import { FirstTxBtn } from './FirstTxBtn'
 
 function Home(): JSX.Element {
   return (
     <AppShell bgColor={BgColor.WHITE}>
-      <h1 className="text-grey-400">Welcome to Cookiejar</h1>
-      <div>
-        <p>Track finances faster and see where your money goes</p>
+      <div className="flex flex-col justify-between h-screen">
+        <MainCTA
+          title="Welcome to Cookiejar"
+          subTitle="Track finances faster and see where your money goes"
+        />
+        <FirstTxBtn onClick={() => console.log('clicked')} />
       </div>
-      <Button label="Log first transaction" type={ButtonType.LINK}></Button>
     </AppShell>
   )
 }

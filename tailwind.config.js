@@ -25,6 +25,7 @@ module.exports = {
       },
       borderRadius: {
         DEFAULT: '5px',
+        'lg-mid': '0.625rem'
       },
       borderWidth: {
         DEFAULT: '1px'
