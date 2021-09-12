@@ -6,7 +6,6 @@ import { BaseIconText } from '@components/BaseIconText'
 export interface CheckboxRowProps {
   label: string
   isSelected?: boolean
-  iconURI?: string
   onChange?: (checked: boolean) => void
   initialValue?: boolean
 }

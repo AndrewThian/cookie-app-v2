@@ -8,6 +8,7 @@ export interface BaseIconTextProps {
   selectable?: boolean
   noIcon?: boolean
   type?: Type
+  disabled?: boolean
 }
 
 export enum Type {
@@ -21,13 +22,18 @@ export const BaseIconText: React.FC<BaseIconTextProps> = ({
   selectable,
   secondary,
   type = Type.FULL,
+  disabled = false,
 }) => (
   <div
     className={clsx('flex items-center select-none', {
       'w-full': type === Type.FULL,
     })}
   >
-    {!noIcon && <BaseIcon selectable={selectable}>{icon}</BaseIcon>}
+    {!noIcon && (
+      <BaseIcon disabled={disabled} selectable={selectable}>
+        {icon}
+      </BaseIcon>
+    )}
     <div>{secondary}</div>
   </div>
 )

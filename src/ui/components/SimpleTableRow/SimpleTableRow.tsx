@@ -2,7 +2,7 @@ import React from 'react'
 import { BaseRow } from '../BaseRow'
 
 import BlueTick from '@icons/blue-tick.svg'
-import DefaultIcon from '@icons/diamond.svg'
+import { BaseIconText } from '@components/BaseIconText'
 
 export interface SimpleTableRowProps {
   label: string
@@ -18,17 +18,10 @@ const Tick: React.FC = () => (
   </div>
 )
 
-export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({
-  label,
-  icon,
-  isSelected = false,
-}) => (
+export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({ label, isSelected = false }) => (
   <BaseRow>
     <div className="flex justify-between items-center">
-      <div className="flex items-center p-base">
-        {icon ?? <DefaultIcon />}
-        <p className="block ml-4">{label}</p>
-      </div>
+      <BaseIconText secondary={<p>{label}</p>} />
       {isSelected ? <Tick /> : null}
     </div>
   </BaseRow>

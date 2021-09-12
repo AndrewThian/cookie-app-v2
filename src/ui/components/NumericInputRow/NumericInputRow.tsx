@@ -1,9 +1,9 @@
 import React, { FocusEventHandler, MouseEventHandler } from 'react'
 import { BaseRow, RowStatus } from '../BaseRow'
-import { isUndefined } from 'lodash-es'
 import clsx from 'clsx'
 import { ChangeEventHandler } from 'react'
 import { useClickAway } from 'react-use'
+import { BaseIconText, Type } from '@components/BaseIconText'
 
 export interface NumericInputRowProps {
   label: string
@@ -18,14 +18,12 @@ const stripDollarSign = (val: string): string => val.replace(RegExp('\\$'), '')
 export const NumericInputRow: React.FC<NumericInputRowProps> = ({
   label,
   disabled = false,
-  iconURI,
   onChange,
 }) => {
   const [inputText, setInputText] = React.useState('')
   const [inputFocus, setInputFocus] = React.useState(false)
   const inputElementRef = React.useRef<HTMLInputElement>(null)
   const containerElementRef = React.useRef<HTMLDivElement>(null)
-  const hasIcon = !isUndefined(iconURI) && iconURI !== ''
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const value = e.target.value
@@ -57,21 +55,14 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
       }
     >
       <div
-        className={clsx('flex items-center select-none p-base', {
+        className={clsx('flex items-center select-none', {
           'cursor-pointer': !disabled,
         })}
         ref={containerElementRef}
         onClick={handleContainerClick}
       >
-        {iconURI && <img width="24" height="24" src={iconURI} alt="category icon" />}
-        <div className="flex items-center w-full">
-          <div
-            className={clsx({
-              'ml-4': hasIcon,
-            })}
-          >
-            <p>{label}</p>
-          </div>
+        <BaseIconText type={Type.AUTO} disabled={disabled} secondary={<p>{label}</p>} />
+        <div className="flex items-center w-full p-base">
           <input
             disabled={disabled}
             ref={inputElementRef}
