@@ -36,12 +36,7 @@ export const TextInputRow: React.FC<TextInputRowProps> = ({ onChange, disabled =
   }, [inputText])
 
   return (
-    <BaseRow
-      bgStatus={disabled ? RowStatus.DISABLE : RowStatus.DEFAULT}
-      borderStatus={
-        disabled ? RowStatus.DISABLE : inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT
-      }
-    >
+    <BaseRow disabled={disabled} borderStatus={inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT}>
       <BaseIconText
         secondary={
           <div
@@ -50,7 +45,8 @@ export const TextInputRow: React.FC<TextInputRowProps> = ({ onChange, disabled =
             onClick={handleContainerClick}
           >
             <input
-              className="placeholder-grey-300"
+              disabled={disabled}
+              className="w-full placeholder-grey-300"
               type="text"
               value={inputText}
               onChange={handleChange}

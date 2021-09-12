@@ -24,7 +24,7 @@ export const CheckboxRow: React.FC<CheckboxRowProps> = ({ label, onChange, initi
   return (
     <div className="flex items-center cursor-pointer" onClick={handleClick}>
       <BaseRow>
-        <BaseIconText secondary={<p>{label}</p>} />
+        <BaseIconText secondary={<p className="text-base">{label}</p>} />
       </BaseRow>
       <Checkbox spacing onChange={onChange} checked={checked} disableEvents />
     </div>

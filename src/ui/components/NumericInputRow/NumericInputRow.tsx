@@ -48,12 +48,7 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
   }, [onChange, inputText])
 
   return (
-    <BaseRow
-      bgStatus={disabled ? RowStatus.DISABLE : RowStatus.DEFAULT}
-      borderStatus={
-        disabled ? RowStatus.DISABLE : inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT
-      }
-    >
+    <BaseRow disabled={disabled} borderStatus={inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT}>
       <div
         className={clsx('flex items-center select-none', {
           'cursor-pointer': !disabled,
@@ -61,7 +56,11 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
         ref={containerElementRef}
         onClick={handleContainerClick}
       >
-        <BaseIconText type={Type.AUTO} disabled={disabled} secondary={<p>{label}</p>} />
+        <BaseIconText
+          type={Type.AUTO}
+          disabled={disabled}
+          secondary={<p className="text-base">{label}</p>}
+        />
         <div className="flex items-center w-full p-base">
           <input
             disabled={disabled}

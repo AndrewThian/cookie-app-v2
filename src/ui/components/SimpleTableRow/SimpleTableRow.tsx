@@ -21,7 +21,7 @@ const Tick: React.FC = () => (
 export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({ label, isSelected = false }) => (
   <BaseRow>
     <div className="flex justify-between items-center">
-      <BaseIconText secondary={<p>{label}</p>} />
+      <BaseIconText secondary={<p className="text-base">{label}</p>} />
       {isSelected ? <Tick /> : null}
     </div>
   </BaseRow>
