@@ -19,8 +19,10 @@ export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({
   isSelected = false,
 }) => (
   <BaseRow>
-    <img src={iconURI} alt="category icon" />
-    <p className="block ml-4">{label}</p>
-    {isSelected ? <Tick /> : null}
+    <div className="flex items-center p-base">
+      <img src={iconURI} alt="category icon" />
+      <p className="block ml-4">{label}</p>
+      {isSelected ? <Tick /> : null}
+    </div>
   </BaseRow>
 )
