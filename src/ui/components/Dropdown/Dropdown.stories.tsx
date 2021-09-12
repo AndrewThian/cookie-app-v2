@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Dropdown, DropdownProps } from './Dropdown'
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Molecule/Dropdown',
   component: Dropdown,
 } as Meta
 
