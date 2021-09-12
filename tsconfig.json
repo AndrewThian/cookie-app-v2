@@ -4,7 +4,8 @@
     "paths": {
       "@utils/*": ["src/utils/*"],
       "@domains/*": ["src/domains/*"],
-      "@components/*": ["src/ui/components/*"]
+      "@components/*": ["src/ui/components/*"],
+      "@icons/*": ["public/assets/icons/*"]
     },
     "target": "es5",
     "lib": [

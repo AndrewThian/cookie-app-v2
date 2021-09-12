@@ -14,6 +14,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "@tailwindcss/forms": "^0.3.3",
     "@types/react-router-dom": "^5.1.7",
     "clsx": "^1.1.1",
