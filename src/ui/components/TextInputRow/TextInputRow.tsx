@@ -1,3 +1,4 @@
+import { BaseIconText } from '@components/BaseIconText'
 import React, { ChangeEventHandler, FocusEventHandler, MouseEventHandler } from 'react'
 import { useClickAway } from 'react-use'
 import { BaseRow, RowStatus } from '../BaseRow'
@@ -41,20 +42,24 @@ export const TextInputRow: React.FC<TextInputRowProps> = ({ onChange, disabled =
         disabled ? RowStatus.DISABLE : inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT
       }
     >
-      <div
-        ref={containerElementRef}
-        className="flex items-center p-base"
-        onClick={handleContainerClick}
-      >
-        <input
-          className="placeholder-grey-300"
-          type="text"
-          value={inputText}
-          onChange={handleChange}
-          onFocus={handleInputFocus}
-          placeholder="Enter text"
-        />
-      </div>
+      <BaseIconText
+        secondary={
+          <div
+            ref={containerElementRef}
+            className="flex items-center"
+            onClick={handleContainerClick}
+          >
+            <input
+              className="placeholder-grey-300"
+              type="text"
+              value={inputText}
+              onChange={handleChange}
+              onFocus={handleInputFocus}
+              placeholder="Enter text"
+            />
+          </div>
+        }
+      />
     </BaseRow>
   )
 }
