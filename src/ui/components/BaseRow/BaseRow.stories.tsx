@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { BaseRow, BaseRowProps } from './BaseRow'
 
 export default {
-  title: 'Components/BaseRow',
+  title: 'Components/Atom/BaseRow',
   component: BaseRow,
 } as Meta
 

@@ -4,7 +4,6 @@ import React from 'react'
 export enum WidthType {
   FIXED = 'fixed',
   VARIABLE = 'variable',
-  LINK = 'link',
 }
 
 export enum ButtonType {

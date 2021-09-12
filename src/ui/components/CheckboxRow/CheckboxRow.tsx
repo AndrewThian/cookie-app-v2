@@ -1,6 +1,7 @@
 import { Checkbox } from '../Checkbox'
 import React from 'react'
 import { BaseRow } from '../BaseRow'
+import { BaseIconText } from '@components/BaseIconText'
 
 export interface CheckboxRowProps {
   label: string
@@ -10,12 +11,7 @@ export interface CheckboxRowProps {
   initialValue?: boolean
 }
 
-export const CheckboxRow: React.FC<CheckboxRowProps> = ({
-  label,
-  iconURI = '/assets/icons/diamond.svg',
-  onChange,
-  initialValue,
-}) => {
+export const CheckboxRow: React.FC<CheckboxRowProps> = ({ label, onChange, initialValue }) => {
   const [checked, setChecked] = React.useState(initialValue ?? false)
   const handleClick = (): void => setChecked((currentChecked) => !currentChecked)
   const onChangeRef = React.useRef(onChange)
@@ -29,10 +25,7 @@ export const CheckboxRow: React.FC<CheckboxRowProps> = ({
   return (
     <div className="flex items-center cursor-pointer" onClick={handleClick}>
       <BaseRow>
-        <div className="flex items-center select-none p-base w-full">
-          <img src={iconURI} alt="category icon" />
-          <p className="block ml-4">{label}</p>
-        </div>
+        <BaseIconText secondary={<p>{label}</p>} />
       </BaseRow>
       <Checkbox spacing onChange={onChange} checked={checked} disableEvents />
     </div>
