@@ -11,7 +11,7 @@ export interface CheckboxProps {
 }
 
 const CheckboxIcon: React.FC<{ filled: boolean }> = ({ filled }) => (
-  <img src={`/assets/checkbox/${filled ? 'filled' : 'blank'}.svg`} />
+  <img src={`/assets/icons/checkbox-${filled ? 'filled' : 'blank'}.svg`} />
 )
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -41,7 +41,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={clsx({
+      className={clsx('select-none', {
         'p-4': spacing,
         'pointer-events-none': disableEvents,
       })}
