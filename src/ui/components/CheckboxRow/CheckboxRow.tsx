@@ -1,6 +1,6 @@
 import { Checkbox } from '../Checkbox'
 import React from 'react'
-import { BaseRow, IgnoreMargin } from '../BaseRow'
+import { BaseRow } from '../BaseRow'
 
 export interface CheckboxRowProps {
   label: string
@@ -27,10 +27,12 @@ export const CheckboxRow: React.FC<CheckboxRowProps> = ({
   }, [checked])
 
   return (
-    <div className="flex items-center cursor-pointer select-none" onClick={handleClick}>
-      <BaseRow ignoreMargin={IgnoreMargin.RIGHT}>
-        <img src={iconURI} alt="category icon" />
-        <p className="block ml-4">{label}</p>
+    <div className="flex items-center cursor-pointer" onClick={handleClick}>
+      <BaseRow>
+        <div className="flex items-center select-none p-base w-full">
+          <img src={iconURI} alt="category icon" />
+          <p className="block ml-4">{label}</p>
+        </div>
       </BaseRow>
       <Checkbox spacing onChange={onChange} checked={checked} disableEvents />
     </div>

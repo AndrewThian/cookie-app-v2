@@ -1,5 +1,5 @@
 import React, { FocusEventHandler, MouseEventHandler } from 'react'
-import { BaseRow } from '../BaseRow'
+import { BaseRow, RowStatus } from '../BaseRow'
 import { isUndefined } from 'lodash-es'
 import clsx from 'clsx'
 import { ChangeEventHandler } from 'react'
@@ -50,18 +50,18 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
   }, [onChange, inputText])
 
   return (
-    <div
-      ref={containerElementRef}
-      className={clsx('rounded select-none', {
-        'cursor-pointer': !disabled,
-        'bg-grey-100': disabled,
-        'cursor-default': disabled,
-      })}
-      onClick={handleContainerClick}
+    <BaseRow
+      bgStatus={disabled ? RowStatus.DISABLE : RowStatus.DEFAULT}
+      borderStatus={
+        disabled ? RowStatus.DISABLE : inputFocus ? RowStatus.SUCCESS : RowStatus.DEFAULT
+      }
     >
-      <BaseRow
-        hasIcon={hasIcon}
-        borderColor={disabled ? 'border-grey-100' : inputFocus ? 'border-blue-400' : 'border-white'}
+      <div
+        className={clsx('flex items-center select-none p-base', {
+          'cursor-pointer': !disabled,
+        })}
+        ref={containerElementRef}
+        onClick={handleContainerClick}
       >
         {iconURI && <img width="24" height="24" src={iconURI} alt="category icon" />}
         <div className="flex items-center w-full">
@@ -70,18 +70,12 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
               'ml-4': hasIcon,
             })}
           >
-            <p
-              className={clsx('text-base', {
-                'text-grey-300': disabled,
-              })}
-            >
-              {label}
-            </p>
+            <p>{label}</p>
           </div>
           <input
             disabled={disabled}
             ref={inputElementRef}
-            className="pointer-events-none text-grey-400 w-full placeholder-grey-300 text-right"
+            className="pointer-events-none w-full placeholder-grey-300 text-right"
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
@@ -91,7 +85,7 @@ export const NumericInputRow: React.FC<NumericInputRowProps> = ({
             onFocus={handleInputFocus}
           />
         </div>
-      </BaseRow>
-    </div>
+      </div>
+    </BaseRow>
   )
 }
