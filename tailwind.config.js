@@ -9,6 +9,9 @@ module.exports = {
       lg: '1.5rem',
       xl: '2rem',
       xxl: '2.5rem',
+      h1: ['2.5rem', '3rem'],
+      h2: ['2rem', '2.4rem'],
+      h3: ['1.5rem', '1.8rem']
     },
     extend: {
       lineHeight: {

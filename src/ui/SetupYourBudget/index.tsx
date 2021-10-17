@@ -1,7 +1,12 @@
-import { AppShell, BgColor } from '@components/AppShell'
+import { AppShell, BgColor, ShellType } from '@components/AppShell'
+import Heading from './Heading'
 
-const SetupYourBudget = () => {
-  return <AppShell bgColor={BgColor.WHITE}>Set up your budget</AppShell>
+const SetupYourBudget: React.FC = () => {
+  return (
+    <AppShell bgColor={BgColor.WHITE} type={ShellType.page}>
+      <Heading />
+    </AppShell>
+  )
 }
 
 export default SetupYourBudget

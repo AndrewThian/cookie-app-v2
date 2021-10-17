@@ -10,11 +10,11 @@ function App(): JSX.Element {
     <ClientRender>
       <Router>
         <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
           <Route path="/setup">
             <SetupYourBudget />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </Router>
