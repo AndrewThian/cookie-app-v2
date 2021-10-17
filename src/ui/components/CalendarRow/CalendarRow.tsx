@@ -4,10 +4,10 @@ import { BaseRow, RowStatus } from '../BaseRow'
 import { CustomDateInput } from './CustomDateInput'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import { BaseIconText, Type } from '@components/BaseIconText'
 
 export interface CalendarRowProps {
   label: string
-  iconURI?: string
   onChange: (date: Date) => void
   status?: RowStatus
   disabled?: boolean
@@ -15,7 +15,6 @@ export interface CalendarRowProps {
 
 export const CalendarRow: React.FC<CalendarRowProps> = ({
   label,
-  iconURI = '/assets/icons/diamond.svg',
   status = RowStatus.DEFAULT,
   disabled = false,
   onChange,
@@ -38,13 +37,8 @@ export const CalendarRow: React.FC<CalendarRowProps> = ({
 
   return (
     <BaseRow borderStatus={rowStatus} bgStatus={rowStatus}>
-      <div className="flex items-center p-base">
-        <div className="flex items-center">
-          <img src={iconURI} alt="category icon" />
-          <div className="block ml-4">
-            <p className="text-base">{label}</p>
-          </div>
-        </div>
+      <div className="flex items-center">
+        <BaseIconText type={Type.AUTO} secondary={<p className="text-base">{label}</p>} />
         <DatePicker
           selected={startDate}
           onChange={handleChange}

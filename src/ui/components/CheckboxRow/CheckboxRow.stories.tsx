@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { CheckboxRow, CheckboxRowProps } from './CheckboxRow'
 
 export default {
-  title: 'Components/CheckboxRow',
+  title: 'Components/Molecule/CheckboxRow',
   component: CheckboxRow,
 } as Meta
 

@@ -12,12 +12,14 @@ export interface BaseRowProps {
   children: React.ReactNode
   borderStatus?: RowStatus
   bgStatus?: RowStatus
+  disabled?: boolean
 }
 
 export const BaseRow: React.FC<BaseRowProps> = ({
   borderStatus = RowStatus.DEFAULT,
   bgStatus = RowStatus.DEFAULT,
   children,
+  disabled = false,
 }) => {
   return (
     <div
@@ -25,17 +27,17 @@ export const BaseRow: React.FC<BaseRowProps> = ({
         'text-base rounded border bg-white w-full',
         {
           'border-white': borderStatus === RowStatus.DEFAULT,
-          'border-grey-100': borderStatus === RowStatus.DISABLE,
           'border-blue-400': borderStatus === RowStatus.SUCCESS,
           'border-pink-400': borderStatus === RowStatus.FAILURE,
+          'border-grey-100': disabled,
         },
         {
           'bg-white': bgStatus === RowStatus.DEFAULT,
-          'bg-grey-100': bgStatus === RowStatus.DISABLE,
+          'bg-grey-100': disabled,
         },
         {
           'text-grey-300': bgStatus === RowStatus.DISABLE,
-          'text-grey-400': bgStatus !== RowStatus.DISABLE,
+          'text-grey-400': disabled,
         }
       )}
     >

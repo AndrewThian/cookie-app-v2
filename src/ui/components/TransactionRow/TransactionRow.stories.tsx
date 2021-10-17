@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { TransactionRow, TransactionRowProps } from './TransactionRow'
 
 export default {
-  title: 'Components/TransactionRow',
+  title: 'Components/Molecule/TransactionRow',
   component: TransactionRow,
 } as Meta
 

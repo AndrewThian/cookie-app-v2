@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { NumericInputRow, NumericInputRowProps } from './NumericInputRow'
 
 export default {
-  title: 'Components/NumericInputRow',
+  title: 'Components/Molecule/NumericInputRow',
   component: NumericInputRow,
 } as Meta
 

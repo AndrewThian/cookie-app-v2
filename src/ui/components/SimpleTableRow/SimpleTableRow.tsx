@@ -1,27 +1,27 @@
 import React from 'react'
 import { BaseRow } from '../BaseRow'
 
+import BlueTick from '@icons/blue-tick.svg'
+import { BaseIconText } from '@components/BaseIconText'
+
 export interface SimpleTableRowProps {
   label: string
   isSelected?: boolean
-  iconURI?: string
+  icon?: React.ReactElement
 }
 
 const Tick: React.FC = () => (
-  <div className="rounded-full icon-size bg-blue-100 absolute top-2 right-4 flex justify-center items-center">
-    <img src="/assets/icons/blue-tick.svg" alt="blue tick" />
+  <div className="icon-padding">
+    <div className="rounded-full icon-size bg-blue-100 flex justify-center items-center">
+      <BlueTick />
+    </div>
   </div>
 )
 
-export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({
-  label,
-  iconURI = '/assets/icons/diamond.svg',
-  isSelected = false,
-}) => (
+export const SimpleTableRow: React.FC<SimpleTableRowProps> = ({ label, isSelected = false }) => (
   <BaseRow>
-    <div className="flex items-center p-base">
-      <img src={iconURI} alt="category icon" />
-      <p className="block ml-4">{label}</p>
+    <div className="flex justify-between items-center">
+      <BaseIconText secondary={<p className="text-base">{label}</p>} />
       {isSelected ? <Tick /> : null}
     </div>
   </BaseRow>

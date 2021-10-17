@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { CalendarRow, CalendarRowProps } from './CalendarRow'
 
 export default {
-  title: 'Components/CalendarRow',
+  title: 'Components/Molecule/CalendarRow',
   component: CalendarRow,
 } as Meta
 
